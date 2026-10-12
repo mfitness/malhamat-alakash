@@ -1,10 +1,172 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#251b19"><title>ملحمة العكش | لحوم طازجة</title><link rel="stylesheet" href="style.css"></head><body>
-<header class="top"><a class="brand" href="#home"><span class="mark">ع</span><span><b>ملحمة العكش</b><small>الطعم الطازج يبدأ من هون</small></span></a><nav><a href="#home">الرئيسية</a><a href="#products">المنتجات</a><a href="#about">عن الملحمة</a><a href="#contact">تواصل معنا</a></nav><button class="cart-open" id="cartOpen">السلة <span id="count">0</span></button></header>
-<main><section class="hero" id="home"><div class="hero-text"><span class="kicker">أهلاً وسهلاً بكم</span><h1>اختيار طازج،<br><em>وطعم بتوثق فيه.</em></h1><p>تصفّح منتجات ملحمة العكش، اختَر اللي بدك إياه، وابعث طلبك بسهولة عبر واتساب.</p><a class="btn" href="#products">تصفّح المنتجات ←</a><div class="tiny">✦ نرجو تأكيد الأسعار والتوفّر قبل تجهيز الطلب</div></div><div class="hero-visual"><div class="circle"></div><div class="steak">🥩</div><div class="stamp"><b>ملحمة العكش</b><small>الخليل • فلسطين</small></div></div></section>
-<section class="features"><div><i>✓</i><span><b>اختيارك أولاً</b><small>تصفّح المنتجات بسهولة</small></span></div><div><i>✦</i><span><b>تجهيز حسب الطلب</b><small>أضف ملاحظاتك عند الطلب</small></span></div><div><i>↗</i><span><b>طلب سريع</b><small>تواصل مباشر عبر واتساب</small></span></div></section>
-<section class="section" id="products"><div class="section-head"><div><span class="kicker">اختيارات الملحمة</span><h2>منتجاتنا</h2><p>الأسعار الموجودة حالياً تجريبية، عدّلها قبل نشر الموقع.</p></div><div class="filters" id="filters"><button class="active" data-cat="الكل">الكل</button><button data-cat="لحوم">لحوم</button><button data-cat="دجاج">دجاج</button><button data-cat="جاهز للشوي">جاهز للشوي</button></div></div><div class="grid" id="grid"></div></section>
-<section class="banner"><div><span class="kicker">طلبك صار أسهل</span><h2>اختَر منتجاتك، وابعت طلبك إلنا.</h2><p>أضف المنتجات إلى السلة وأرسل تفاصيلها عبر واتساب.</p></div><a class="btn light" href="#products">ابدأ التسوّق</a></section>
-<section class="about section" id="about"><div class="about-mark">ع</div><div><span class="kicker">من قلب الخليل</span><h2>أهلاً بكم في ملحمة العكش</h2><p>تصفّح قائمة المنتجات واختَر النوع والكمية المناسبة. بعد إرسال الطلب، بنتواصل معك لتأكيد السعر والتوفّر وطريقة الاستلام أو التوصيل.</p></div></section>
-<section class="contact section" id="contact"><div><span class="kicker">تفضلوا بزيارتنا</span><h2>موقعنا وتواصل معنا</h2></div><div class="contact-grid"><article><span>⌖</span><small>العنوان</small><b>الخليل، شارع المفرق العجوري</b></article><article><span>☏</span><small>هاتف / واتساب</small><b dir="ltr">+972 59-909-4315</b><a id="waLink" target="_blank" rel="noopener">راسلنا على واتساب ↗</a></article></div></section></main>
-<footer><a class="brand" href="#home"><span class="mark">ع</span><span><b>ملحمة العكش</b><small>الخليل، شارع المفرق العجوري</small></span></a><small>© <span id="year"></span> ملحمة العكش</small></footer>
-<div class="shade" id="shade"></div><aside class="drawer" id="drawer"><div class="drawer-head"><div><span class="kicker">طلبك</span><h2>سلة المشتريات</h2></div><button id="close" class="x">×</button></div><div id="items" class="items"></div><div class="total"><span>المجموع التقديري</span><b id="total">₪0</b></div><p class="disclaimer">السعر تقديري وقد يختلف حسب الوزن والتوفّر. تأكيد السعر يكون مع الملحمة.</p><form id="orderForm"><label>اسمك<input name="name" required placeholder="اكتب اسمك"></label><label>رقم الهاتف<input name="phone" type="tel" required placeholder="رقم للتواصل"></label><label>ملاحظات أو عنوان التوصيل<textarea name="notes" rows="2" placeholder="اختياري"></textarea></label><button class="btn full" type="submit">إرسال الطلب عبر واتساب</button><button class="btn outline full" type="button" id="copy">نسخ تفاصيل الطلب</button></form></aside><div class="toast" id="toast"></div><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#251b19">
+  <meta name="description" content="ملحمة العكش - لحوم طازجة وخدمة طلب سهلة عبر واتساب.">
+  <title>ملحمة العكش | لحوم طازجة</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <div class="top-strip">
+    طعم الجودة يبدأ من ملحمة العكش
+  </div>
+
+  <header class="header">
+    <a class="brand" href="#home">
+      <span class="brand-icon">🥩</span>
+      <span>
+        <strong>ملحمة العكش</strong>
+        <small>لحوم طازجة كل يوم</small>
+      </span>
+    </a>
+
+    <nav class="nav">
+      <a href="#home">الرئيسية</a>
+      <a href="#products">المنتجات</a>
+      <a href="#about">عن الملحمة</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+
+    <button class="cart-button" id="openCart" type="button">
+      🛒 السلة <span id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">أهلًا وسهلًا بكم</span>
+        <h1>الجودة التي تستحقها<br><span>سفرتك كل يوم</span></h1>
+        <p>
+          اكتشف منتجات ملحمة العكش، اختر طلبك من الموقع
+          وأرسله إلينا بسهولة عبر واتساب.
+        </p>
+        <a class="primary-button" href="#products">تصفّح المنتجات ←</a>
+
+        <div class="hero-features">
+          <span>✓ منتجات متنوعة</span>
+          <span>✓ طلب سهل</span>
+          <span>✓ تواصل مباشر</span>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=1000&q=85"
+          alt="قطع لحم طازجة"
+        >
+        <div class="image-label">
+          <span>🥩</span>
+          <div>
+            <strong>ملحمة العكش</strong>
+            <small>الجودة والاهتمام بالتفاصيل</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits">
+      <div><span>🥩</span><strong>تشكيلة متنوعة</strong><small>اختر ما يناسبك</small></div>
+      <div><span>🛒</span><strong>سلة مشتريات</strong><small>اجمع طلبك بسهولة</small></div>
+      <div><span>📱</span><strong>طلب عبر واتساب</strong><small>تواصل مباشر مع الملحمة</small></div>
+    </section>
+
+    <section class="products-section" id="products">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">اختياراتك المفضلة</span>
+          <h2>منتجات الملحمة</h2>
+          <p>اختر المنتجات وأضفها إلى سلتك.</p>
+        </div>
+        <span class="product-count" id="productCount">منتجات متنوعة</span>
+      </div>
+
+      <div class="category-list" id="categories">
+        <button class="category active" data-category="الكل" type="button">الكل</button>
+        <button class="category" data-category="لحم بقري" type="button">لحم بقري</button>
+        <button class="category" data-category="لحم خروف" type="button">لحم خروف</button>
+        <button class="category" data-category="دجاج" type="button">دجاج</button>
+        <button class="category" data-category="مفروم" type="button">لحم مفروم</button>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-icon">🥩</div>
+      <div>
+        <span class="eyebrow">من ملحمتنا إلى سفرتكم</span>
+        <h2>أهلًا وسهلًا في ملحمة العكش</h2>
+        <p>
+          نسعى لتقديم تجربة طلب سهلة ومريحة لزبائننا.
+          تصفّح المنتجات، أضف ما تحتاجه إلى السلة، وأرسل طلبك
+          مباشرة عبر واتساب للتأكد من السعر والتوفر.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <span class="eyebrow">نحن بانتظاركم</span>
+      <h2>تواصل مع ملحمة العكش</h2>
+      <p>الخليل، شارع المفرق العجوري</p>
+      <a
+        class="primary-button"
+        href="https://wa.me/972599094315"
+        target="_blank"
+        rel="noopener noreferrer"
+      >تواصل عبر واتساب ↗</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="#home">
+      <span class="brand-icon">🥩</span>
+      <span>
+        <strong>ملحمة العكش</strong>
+        <small>لحوم طازجة كل يوم</small>
+      </span>
+    </a>
+    <p>الخليل، شارع المفرق العجوري</p>
+    <small>© <span id="year"></span> ملحمة العكش. جميع الحقوق محفوظة.</small>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-label="سلة المشتريات">
+    <div class="drawer-header">
+      <div>
+        <h2>سلة المشتريات 🛒</h2>
+        <p>راجع طلبك قبل الإرسال</p>
+      </div>
+      <button class="close-button" id="closeCart" type="button" aria-label="إغلاق">✕</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-bottom">
+      <div class="total-row">
+        <span>المجموع التقريبي</span>
+        <strong id="cartTotal">₪0</strong>
+      </div>
+      <small class="total-note">الأسعار تجريبية لحين تأكيد أسعار الملحمة.</small>
+
+      <label for="customerName">اسمك</label>
+      <input id="customerName" type="text" placeholder="اكتب اسمك">
+
+      <label for="customerAddress">عنوان التوصيل أو ملاحظة</label>
+      <textarea id="customerAddress" rows="2" placeholder="اكتب العنوان أو ملاحظاتك (اختياري)"></textarea>
+
+      <button class="checkout-button" id="checkoutButton" type="button">
+        إرسال الطلب عبر واتساب
+      </button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status"></div>
+
+</body>
+</html>
